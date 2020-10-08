@@ -26,6 +26,10 @@ Because React gives us specific methods that allow us to HOOK into these lifecyc
 
 */
 
+import React, { Component } from 'react';
+import './App.css';
+import axios from 'axios'
+
 class App extends Component {
   constructor() {
     super();
@@ -40,7 +44,7 @@ class App extends Component {
 
   async componentDidMount() {
     console.log('in componentDidMount!!!')
-    const { data } = await axios.get('/api/users')
+    const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon')
     console.log('RESULT: ', data.results)
     this.setState({pokemon: data.results})
   }
@@ -63,7 +67,7 @@ class App extends Component {
         <ul>
           {
             pokemon.map((pokemon, index) => {
-              return <li key={pokemon.id}>Name: {pokemon.name}</li>
+              return <li key={index}>Name: {pokemon.name}</li>
             })
           }
         </ul>
@@ -71,4 +75,8 @@ class App extends Component {
     );
   }
 }
+
+export default App;
+
+
 export default App;
