@@ -26,10 +26,6 @@ Because React gives us specific methods that allow us to HOOK into these lifecyc
 
 */
 
-import React, { Component } from 'react';
-import './App.css';
-import axios from 'axios'
-
 class App extends Component {
   constructor() {
     super();
